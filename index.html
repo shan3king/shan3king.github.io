@@ -24,8 +24,15 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <title>Shane King - Portfolio</title>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/JetBrainsMono/2.3.0/web/jetbrains-mono.css" as="style">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JetBrainsMono/2.3.0/web/jetbrains-mono.css">
+    <style>
+        @font-face {
+            font-family: 'Lilex';
+            src: url('https://cdn.jsdelivr.net/npm/lilex@2.400/variable/Lilex-VF.woff2') format('woff2');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         :root {
@@ -51,7 +58,7 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
         }
 
         body {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Lilex', monospace;
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
@@ -234,14 +241,14 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
 </script>
 <body>
     <div class="header">
-        <h1>SHANE KING 💼</h1>
+        <h1>SHANE KING</h1>
         <div class="meta">
             <div class="meta-item">
-                <div class="meta-label">Version 🔒</div>
+                <div class="meta-label">Version</div>
                 <div>v1.0.0</div>
             </div>
             <div class="meta-item">
-                <div class="meta-label">Webmaster 🧑‍💻</div>
+                <div class="meta-label">Webmaster</div>
                 <div>shan3king[at]icloud[dot]com</div>
             </div>
         </div>
@@ -249,7 +256,7 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
 
     <div class="content">
         <nav class="tree">
-            <h2>SITEMAP 🌎</h2>
+            <h2>SITEMAP</h2>
             <p style="margin: 0;">index</p>
             <ul class="incremental">
                 <li>
@@ -266,7 +273,7 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                 <li>
                     <p style="margin: 0;">external</p>
                     <ul class="incremental">
-                        <li><a href="https://github.com/shaneking-code">github →</a></li>
+                        <li><a href="https://github.com/shan3king">github →</a></li>
                         <li><a href="https://linkedin.com/in/shane-king">linkedin →</a></li>
                         <li><a href="./resume.pdf" target="_blank">resume →</a></li>
                     </ul>
@@ -275,29 +282,29 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
         </nav>
 
         <section id="projects" class="section">
-            <h2>PROJECTS 🛠️</h2>
+            <h2>PROJECTS</h2>
             <div class="project">
-                <h3>TIME SERIES TRANSFORMER 📈</h3>
+                <h3>TIME SERIES TRANSFORMER</h3>
                 <p>Engineered and optimized transformer architecture for time series prediction. Implemented end-to-end ML pipeline for processing SWOT satellite data with custom attention mechanisms. Built using Python, PyTorch, NumPy, Pandas, and Scikit-learn.</p>
-                <a href="https://github.com/shaneking-code/TSTransformer">View Project →</a>
+                <a href="https://github.com/shan3king/TSTransformer">View Project →</a>
             </div>
             <div class="project">
-                <h3>EAGLEPLAN 📆</h3>
+                <h3>EAGLEPLAN</h3>
                 <p>Led backend development for course planning platform intended to serve 5000+ students. Built with Django, JavaScript, and RESTful APIs. Implemented Google OAuth integration and full-stack CRUD operations.</p>
             </div>
             <div class="project">
-                <h3>XV6 OPERATING SYSTEM ⚙️</h3>
+                <h3>XV6 OPERATING SYSTEM</h3>
                 <p>Enhanced xv6 teaching operating system with priority scheduling and thread support. Implemented system calls and memory management features using C and x86 Assembly.</p>
             </div>
             <div class="project">
-                <h3>SYNAPSE 🧠</h3>
+                <h3>SYNAPSE</h3>
                 <p>Implemented a ML pipeline and webapp allowing semantic search and recommendation over a corpus of 200k+ simple-english wikipedia articles</p>
-                <a href="https://github.com/shaneking-code/synapse">View Project →</a>
+                <a href="https://github.com/shan3king/synapse">View Project →</a>
             </div>
         </section>
 
         <section id="education" class="section">
-            <h2>EDUCATION 📚</h2>
+            <h2>EDUCATION</h2>
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
                     <p>Boston College</p>
@@ -310,7 +317,7 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
         </section>
 
         <section id="coursework" class="section">
-            <h2>COURSEWORK 📖</h2>
+            <h2>COURSEWORK</h2>
             <div class="two-columns">
                 <div>
                     <ul>
@@ -342,7 +349,7 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
         </section>
 
         <section id="skills" class="section">
-            <h2>SKILLS 🧠</h2>
+            <h2>SKILLS</h2>
             <ul>
                 <li>PROGRAMMING: Python, Java, C, OCaml, Rust, JavaScript/TypeScript</li>
                 <li>WEBDEV: Django, HTML5, CSS3, d3.js, RESTful APIs</li>
@@ -353,18 +360,18 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
         </section>
 
         <section id="learning" class="section">
-            <h2>LEARNING 🔍</h2>
+            <h2>LEARNING</h2>
             <ul>
-                <li>Deep Learning Models 🧠</li>
-                <li>(More) Rust 🦀</li>
-                <li>Probabilistic Data Structures 🎲</li>
-                <li>Macrodata Refinement 👁️</li>
+                <li>Deep Learning Models</li>
+                <li>(More) Rust</li>
+                <li>Probabilistic Data Structures</li>
+                <li>Macrodata Refinement</li>
             </ul>
         </section>
 
         <section id="interests" class="section">
-            <h2>INTERESTS ❤️</h2>
-            <p>Hockey 🏒, Baseball ⚾️, Mathematics 📐</p>
+            <h2>INTERESTS</h2>
+            <p>Hockey, Baseball, Mathematics</p>
         </section>
 
     </div>
