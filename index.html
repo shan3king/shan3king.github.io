@@ -67,8 +67,50 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                 --line-height: 1.6rem;
             }
 
+            /* Light theme (default) */
+            [data-theme="light"] {
+                --main-bg: #ffffff;
+                --main-text: #000000;
+                --border: #333333;
+            }
+
+            /* Dark theme */
+            [data-theme="dark"] {
+                --main-bg: #000000;
+                --main-text: #ffffff;
+                --border: #cccccc;
+            }
+
+            /* Solarized Light */
+            [data-theme="solarized-light"] {
+                --main-bg: #fdf6e3;
+                --main-text: #657b83;
+                --border: #93a1a1;
+            }
+
+            /* Solarized Dark */
+            [data-theme="solarized-dark"] {
+                --main-bg: #002b36;
+                --main-text: #839496;
+                --border: #586e75;
+            }
+
+            /* Emacs Light */
+            [data-theme="emacs-light"] {
+                --main-bg: #ffffff;
+                --main-text: #000000;
+                --border: #a0a0a0;
+            }
+
+            /* Emacs Dark */
+            [data-theme="emacs-dark"] {
+                --main-bg: #263238;
+                --main-text: #aabbc3;
+                --border: #546e7a;
+            }
+
             @media (prefers-color-scheme: dark) {
-                :root {
+                :root:not([data-theme]) {
                     --main-bg: #000000;
                     --main-text: #ffffff;
                     --border: #cccccc;
@@ -98,6 +140,11 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                 border: 1px solid var(--border);
                 padding: 1rem;
                 margin-bottom: 2rem;
+            }
+
+            .theme-hint {
+                font-size: 0.85rem;
+                opacity: 0.7;
             }
 
             .meta {
@@ -285,18 +332,24 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                     <div class="meta-label">Webmaster</div>
                     <div>shan3king[at]icloud[dot]com</div>
                 </div>
+                <div class="meta-item">
+                    <div class="meta-label">Theme</div>
+                    <div>
+                        <span id="theme-display">Light</span>
+                        <span class="theme-hint">(Ctrl+.)</span>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="content">
             <nav class="tree">
                 <h2>SITEMAP</h2>
-                <p style="margin: 0">index</p>
+                <p style="margin: 0">src</p>
                 <ul class="incremental">
                     <li>
                         <p style="margin: 0">portfolio</p>
                         <ul class="incremental">
-                            <li><a href="#projects">projects</a></li>
                             <li>
                                 <a href="#experience">experience</a>
                                 <ul class="incremental">
@@ -312,6 +365,7 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                                 </ul>
                             </li>
                             <li><a href="#skills">skills</a></li>
+                            <li><a href="#projects">projects</a></li>
                             <li><a href="#interests">interests</a></li>
                         </ul>
                     </li>
@@ -337,51 +391,6 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                     </li>
                 </ul>
             </nav>
-
-            <section id="projects" class="section">
-                <h2>PROJECTS</h2>
-                <div class="project">
-                    <h3>TIME SERIES TRANSFORMER</h3>
-                    <p>
-                        Engineered and optimized transformer architecture for
-                        time series prediction. Implemented end-to-end ML
-                        pipeline for processing SWOT satellite data with custom
-                        attention mechanisms. Built using Python, PyTorch,
-                        NumPy, Pandas, and Scikit-learn.
-                    </p>
-                    <a href="https://github.com/shan3king/TSTransformer"
-                        >View Project →</a
-                    >
-                </div>
-                <div class="project">
-                    <h3>EAGLEPLAN</h3>
-                    <p>
-                        Led backend development for course planning platform
-                        intended to serve 5000+ students. Built with Django,
-                        JavaScript, and RESTful APIs. Implemented Google OAuth
-                        integration and full-stack CRUD operations.
-                    </p>
-                </div>
-                <div class="project">
-                    <h3>XV6 OPERATING SYSTEM</h3>
-                    <p>
-                        Enhanced xv6 teaching operating system with priority
-                        scheduling and thread support. Implemented system calls
-                        and memory management features using C and x86 Assembly.
-                    </p>
-                </div>
-                <div class="project">
-                    <h3>SYNAPSE</h3>
-                    <p>
-                        Implemented a ML pipeline and webapp allowing semantic
-                        search and recommendation over a corpus of 200k+
-                        simple-english wikipedia articles
-                    </p>
-                    <a href="https://github.com/shan3king/synapse"
-                        >View Project →</a
-                    >
-                </div>
-            </section>
 
             <section id="experience" class="section">
                 <h2>EXPERIENCE</h2>
@@ -461,6 +470,51 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                 </ul>
             </section>
 
+            <section id="projects" class="section">
+                <h2>PROJECTS</h2>
+                <div class="project">
+                    <h3>TIME SERIES TRANSFORMER</h3>
+                    <p>
+                        Engineered and optimized transformer architecture for
+                        time series prediction. Implemented end-to-end ML
+                        pipeline for processing SWOT satellite data with custom
+                        attention mechanisms. Built using Python, PyTorch,
+                        NumPy, Pandas, and Scikit-learn.
+                    </p>
+                    <a href="https://github.com/shan3king/TSTransformer"
+                        >View Project →</a
+                    >
+                </div>
+                <div class="project">
+                    <h3>EAGLEPLAN</h3>
+                    <p>
+                        Led backend development for course planning platform
+                        intended to serve 5000+ students. Built with Django,
+                        JavaScript, and RESTful APIs. Implemented Google OAuth
+                        integration and full-stack CRUD operations.
+                    </p>
+                </div>
+                <div class="project">
+                    <h3>XV6 OPERATING SYSTEM</h3>
+                    <p>
+                        Enhanced xv6 teaching operating system with priority
+                        scheduling and thread support. Implemented system calls
+                        and memory management features using C and x86 Assembly.
+                    </p>
+                </div>
+                <div class="project">
+                    <h3>SYNAPSE</h3>
+                    <p>
+                        Implemented a ML pipeline and webapp allowing semantic
+                        search and recommendation over a corpus of 200k+
+                        simple-english wikipedia articles
+                    </p>
+                    <a href="https://github.com/shan3king/synapse"
+                        >View Project →</a
+                    >
+                </div>
+            </section>
+
             <section id="interests" class="section">
                 <h2>INTERESTS</h2>
                 <p>Hockey, Baseball, Mathematics</p>
@@ -490,6 +544,48 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                     button.classList.toggle("collapsed");
                     button.nextElementSibling.classList.toggle("collapsed");
                 });
+            });
+
+            // Theme switching
+            const root = document.documentElement;
+            const themeDisplay = document.getElementById("theme-display");
+            const themes = [
+                "light",
+                "dark",
+                "solarized-light",
+                "solarized-dark",
+                "emacs-light",
+                "emacs-dark",
+            ];
+            const themeNames = [
+                "Light",
+                "Dark",
+                "Solarized Light",
+                "Solarized Dark",
+                "Emacs Light",
+                "Emacs Dark",
+            ];
+            let currentThemeIndex = 0;
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                currentThemeIndex = themes.indexOf(savedTheme);
+                if (currentThemeIndex === -1) currentThemeIndex = 0;
+                root.setAttribute("data-theme", savedTheme);
+                themeDisplay.textContent = themeNames[currentThemeIndex];
+            }
+
+            // Ctrl+. to cycle theme
+            document.addEventListener("keydown", (e) => {
+                if (e.ctrlKey && e.key === ".") {
+                    e.preventDefault();
+                    currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                    const nextTheme = themes[currentThemeIndex];
+                    root.setAttribute("data-theme", nextTheme);
+                    localStorage.setItem("theme", nextTheme);
+                    themeDisplay.textContent = themeNames[currentThemeIndex];
+                }
             });
         </script>
     </body>
