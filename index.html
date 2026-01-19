@@ -3,391 +3,489 @@ This site's design and certain components are based on "The Monospace Web" by Os
 Source: https://github.com/owickstrom/the-monospace-web
 License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/LICENSE)
 -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="author" content="Shane King">
-    <meta name="description" content="Shane King's Portfolio - Software Engineer">
-    <meta name="keywords" content="Software Engineering, Computer Science, Mathematics, Portfolio">
-    <meta name="dcterms.created" content="2024-03">
-    <meta name="dcterms.modified" content="2024-03">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Shane King - Portfolio">
-    <meta property="og:image" content="./headshot.jpg">
-    <meta property="og:description" content="Shane King's Portfolio - Software Engineer">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <title>Shane King - Portfolio</title>
-    <style>
-        @font-face {
-            font-family: 'Lilex';
-            src: url('https://cdn.jsdelivr.net/npm/lilex@2.400/variable/Lilex-VF.woff2') format('woff2');
-            font-weight: 100 900;
-            font-style: normal;
-            font-display: swap;
-        }
-    </style>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        :root {
-            --main-bg: #ffffff;
-            --main-text: #000000;
-            --border: #333333;
-            --border-thickness: 2px;
-            --line-height: 1.6rem;
-        }
-
-        @media (prefers-color-scheme: dark) {
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <meta name="author" content="Shane King" />
+        <meta
+            name="description"
+            content="Shane King's Portfolio - Software Engineer"
+        />
+        <meta
+            name="keywords"
+            content="Software Engineering, Computer Science, Mathematics, Portfolio"
+        />
+        <meta name="dcterms.created" content="2024-03" />
+        <meta name="dcterms.modified" content="2024-03" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Shane King - Portfolio" />
+        <meta property="og:image" content="./headshot.jpg" />
+        <meta
+            property="og:description"
+            content="Shane King's Portfolio - Software Engineer"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            name="theme-color"
+            content="#000000"
+            media="(prefers-color-scheme: dark)"
+        />
+        <meta
+            name="theme-color"
+            content="#ffffff"
+            media="(prefers-color-scheme: light)"
+        />
+        <title>Shane King - Portfolio</title>
+        <style>
+            @font-face {
+                font-family: "Lilex";
+                src: url("https://cdn.jsdelivr.net/npm/lilex@2.400/variable/Lilex-VF.woff2")
+                    format("woff2");
+                font-weight: 100 900;
+                font-style: normal;
+                font-display: swap;
+            }
+        </style>
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <style>
             :root {
-                --main-bg: #000000;
-                --main-text: #ffffff;
-                --border: #cccccc;
+                --main-bg: #ffffff;
+                --main-text: #000000;
+                --border: #333333;
+                --border-thickness: 2px;
+                --line-height: 1.6rem;
             }
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --main-bg: #000000;
+                    --main-text: #ffffff;
+                    --border: #cccccc;
+                }
+            }
 
-        body {
-            font-family: 'Lilex', monospace;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: var(--main-bg);
-            color: var(--main-text);
-            transition: background-color 0.3s, color 0.3s;
-        }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        .header {
-            border: 1px solid var(--border);
-            padding: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .meta {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .meta-item {
-            display: contents;
-        }
-
-        .meta-label {
-            font-weight: bold;
-        }
-
-        .meta-item div:last-child {
-            word-break: break-word;
-        }
-
-        .content {
-            margin: 2rem 0;
-        }
-
-        .section {
-            margin: 2rem 0;
-        }
-
-        h1, h2, h3 {
-            font-weight: normal;
-        }
-
-        h2 {
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
-        }
-
-        .links {
-            margin: 1rem 0;
-        }
-
-        .links a {
-            color: var(--main-text);
-        }
-        
-        .links div {
-            margin-bottom: 0.5rem;
-        }
-
-        .project {
-            margin-bottom: 1.5rem;
-        }
-
-        .project h3 {
-            font-weight: normal;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer {
-            margin-top: 4rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        a {
-            color: var(--main-text);
-            transition: color 0.3s;
-        }
-        ul {
-            list-style-type: square;
-            margin-left: 1.5rem;
-        }
-
-        .collapsible {
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .collapsible::before {
-            content: "▼";
-            display: inline-block;
-            margin-right: 0.5rem;
-            transition: transform 0.2s;
-        }
-
-        .collapsible.collapsed::before {
-            transform: rotate(-90deg);
-        }
-
-        .collapsible-content {
-            max-height: 1000px;
-            overflow: hidden;
-            -webkit-transition: max-height 0.3s ease-out;
-            -moz-transition: max-height 0.3s ease-out;
-            -o-transition: max-height 0.3s ease-out;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .collapsible-content.collapsed {
-            max-height: 0;
-        }
-
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .tree, .tree ul {
-            position: relative;
-            padding-left: 0;
-            list-style-type: none;
-            line-height: var(--line-height);
-        }
-        .tree ul {
-            margin: 0;
-        }
-        .tree ul li {
-            position: relative;
-            padding-left: 1.5ch;
-            margin-left: 1.5ch;
-            border-left: var(--border-thickness) solid var(--main-text);
-        }
-        .tree ul li:before {
-            position: absolute;
-            display: block;
-            top: calc(var(--line-height) / 2);
-            left: 0;
-            content: "";
-            width: 1ch;
-            border-bottom: var(--border-thickness) solid var(--main-text);
-        }
-        .tree ul li:last-child {
-            border-left: none;
-        }
-        .tree ul li:last-child:after {
-            position: absolute;
-            display: block;
-            top: 0;
-            left: 0;
-            content: "";
-            height: calc(var(--line-height) / 2);
-            border-left: var(--border-thickness) solid var(--main-text);
-        }
-
-        @supports (-webkit-touch-callout: none) {
-            /* CSS specific to iOS devices */
             body {
-                padding-left: env(safe-area-inset-left);
-                padding-right: env(safe-area-inset-right);
+                font-family: "Lilex", monospace;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem;
+                background: var(--main-bg);
+                color: var(--main-text);
+                transition:
+                    background-color 0.3s,
+                    color 0.3s;
             }
-        }
-    </style>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R5MP269WMX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-R5MP269WMX');
-</script>
-<body>
-    <div class="header">
-        <h1>SHANE KING</h1>
-        <div class="meta">
-            <div class="meta-item">
-                <div class="meta-label">Version</div>
-                <div>v1.0.0</div>
-            </div>
-            <div class="meta-item">
-                <div class="meta-label">Webmaster</div>
-                <div>shan3king[at]icloud[dot]com</div>
+            .header {
+                border: 1px solid var(--border);
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .meta {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .meta-item {
+                display: contents;
+            }
+
+            .meta-label {
+                font-weight: bold;
+            }
+
+            .meta-item div:last-child {
+                word-break: break-word;
+            }
+
+            .content {
+                margin: 2rem 0;
+            }
+
+            .section {
+                margin: 2rem 0;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-weight: normal;
+            }
+
+            h2 {
+                margin-bottom: 1rem;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 0.5rem;
+            }
+
+            .links {
+                margin: 1rem 0;
+            }
+
+            .links a {
+                color: var(--main-text);
+            }
+
+            .links div {
+                margin-bottom: 0.5rem;
+            }
+
+            .project {
+                margin-bottom: 1.5rem;
+            }
+
+            .project h3 {
+                font-weight: normal;
+                margin-bottom: 0.5rem;
+            }
+
+            .footer {
+                margin-top: 4rem;
+                padding-top: 1rem;
+                border-top: 1px solid var(--border);
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            a {
+                color: var(--main-text);
+                transition: color 0.3s;
+            }
+            ul {
+                list-style-type: square;
+                margin-left: 1.5rem;
+            }
+
+            .collapsible {
+                cursor: pointer;
+                user-select: none;
+            }
+
+            .collapsible::before {
+                content: "▼";
+                display: inline-block;
+                margin-right: 0.5rem;
+                transition: transform 0.2s;
+            }
+
+            .collapsible.collapsed::before {
+                transform: rotate(-90deg);
+            }
+
+            .collapsible-content {
+                max-height: 1000px;
+                overflow: hidden;
+                -webkit-transition: max-height 0.3s ease-out;
+                -moz-transition: max-height 0.3s ease-out;
+                -o-transition: max-height 0.3s ease-out;
+                transition: max-height 0.3s ease-out;
+            }
+
+            .collapsible-content.collapsed {
+                max-height: 0;
+            }
+
+            .two-columns {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .tree,
+            .tree ul {
+                position: relative;
+                padding-left: 0;
+                list-style-type: none;
+                line-height: var(--line-height);
+            }
+            .tree ul {
+                margin: 0;
+            }
+            .tree ul li {
+                position: relative;
+                padding-left: 1.5ch;
+                margin-left: 1.5ch;
+                border-left: var(--border-thickness) solid var(--main-text);
+            }
+            .tree ul li:before {
+                position: absolute;
+                display: block;
+                top: calc(var(--line-height) / 2);
+                left: 0;
+                content: "";
+                width: 1ch;
+                border-bottom: var(--border-thickness) solid var(--main-text);
+            }
+            .tree ul li:last-child {
+                border-left: none;
+            }
+            .tree ul li:last-child:after {
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                content: "";
+                height: calc(var(--line-height) / 2);
+                border-left: var(--border-thickness) solid var(--main-text);
+            }
+
+            @supports (-webkit-touch-callout: none) {
+                /* CSS specific to iOS devices */
+                body {
+                    padding-left: env(safe-area-inset-left);
+                    padding-right: env(safe-area-inset-right);
+                }
+            }
+        </style>
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-R5MP269WMX"
+    ></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-R5MP269WMX");
+    </script>
+    <body>
+        <div class="header">
+            <h1>SHANE KING</h1>
+            <div class="meta">
+                <div class="meta-item">
+                    <div class="meta-label">Version</div>
+                    <div>v1.0.0</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Webmaster</div>
+                    <div>shan3king[at]icloud[dot]com</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="content">
-        <nav class="tree">
-            <h2>SITEMAP</h2>
-            <p style="margin: 0;">index</p>
-            <ul class="incremental">
-                <li>
-                    <p style="margin: 0;">portfolio</p>
-                    <ul class="incremental">
-                        <li><a href="#projects">projects</a></li>
-                        <li><a href="#education">education</a></li>
-                        <li><a href="#coursework">coursework</a></li>
-                        <li><a href="#skills">skills</a></li>
-                        <li><a href="#learning">learning</a></li>
-                        <li><a href="#interests">interests</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <p style="margin: 0;">external</p>
-                    <ul class="incremental">
-                        <li><a href="https://github.com/shan3king">github →</a></li>
-                        <li><a href="https://linkedin.com/in/shane-king">linkedin →</a></li>
-                        <li><a href="./resume.pdf" target="_blank">resume →</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <div class="content">
+            <nav class="tree">
+                <h2>SITEMAP</h2>
+                <p style="margin: 0">index</p>
+                <ul class="incremental">
+                    <li>
+                        <p style="margin: 0">portfolio</p>
+                        <ul class="incremental">
+                            <li><a href="#projects">projects</a></li>
+                            <li><a href="#experience">experience</a></li>
+                            <li>
+                                <a href="#education">education</a>
+                                <ul class="incremental">
+                                    <li>
+                                        <a href="#coursework">coursework</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#skills">skills</a></li>
+                            <li><a href="#interests">interests</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p style="margin: 0">external</p>
+                        <ul class="incremental">
+                            <li>
+                                <a href="https://github.com/shan3king"
+                                    >github →</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/in/shane-king"
+                                    >linkedin →</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./resume.pdf" target="_blank"
+                                    >resume →</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
 
-        <section id="projects" class="section">
-            <h2>PROJECTS</h2>
-            <div class="project">
-                <h3>TIME SERIES TRANSFORMER</h3>
-                <p>Engineered and optimized transformer architecture for time series prediction. Implemented end-to-end ML pipeline for processing SWOT satellite data with custom attention mechanisms. Built using Python, PyTorch, NumPy, Pandas, and Scikit-learn.</p>
-                <a href="https://github.com/shan3king/TSTransformer">View Project →</a>
-            </div>
-            <div class="project">
-                <h3>EAGLEPLAN</h3>
-                <p>Led backend development for course planning platform intended to serve 5000+ students. Built with Django, JavaScript, and RESTful APIs. Implemented Google OAuth integration and full-stack CRUD operations.</p>
-            </div>
-            <div class="project">
-                <h3>XV6 OPERATING SYSTEM</h3>
-                <p>Enhanced xv6 teaching operating system with priority scheduling and thread support. Implemented system calls and memory management features using C and x86 Assembly.</p>
-            </div>
-            <div class="project">
-                <h3>SYNAPSE</h3>
-                <p>Implemented a ML pipeline and webapp allowing semantic search and recommendation over a corpus of 200k+ simple-english wikipedia articles</p>
-                <a href="https://github.com/shan3king/synapse">View Project →</a>
-            </div>
-        </section>
-
-        <section id="education" class="section">
-            <h2>EDUCATION</h2>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                    <p>Boston College</p>
-                    <p>Bachelors of Science - Computer Science</p>
-                    <p>Minor - Mathematics</p>
-                    <p>Graduation Year: 2024</p>
+            <section id="projects" class="section">
+                <h2>PROJECTS</h2>
+                <div class="project">
+                    <h3>TIME SERIES TRANSFORMER</h3>
+                    <p>
+                        Engineered and optimized transformer architecture for
+                        time series prediction. Implemented end-to-end ML
+                        pipeline for processing SWOT satellite data with custom
+                        attention mechanisms. Built using Python, PyTorch,
+                        NumPy, Pandas, and Scikit-learn.
+                    </p>
+                    <a href="https://github.com/shan3king/TSTransformer"
+                        >View Project →</a
+                    >
                 </div>
-                <img src="./bc_seal.svg" alt="Boston College Logo" style="height: 100px; width: auto; margin-left: 2rem;">
-            </div>
-        </section>
-
-        <section id="coursework" class="section">
-            <h2>COURSEWORK</h2>
-            <div class="two-columns">
-                <div>
-                    <ul>
-                        <li>Data Structures & Algorithms</li>
-                        <li>Software Engineering Principles</li>
-                        <li>Machine Learning</li>
-                        <li>Operating Systems</li>
-                        <li>Computer Systems</li>
-                        <li>Computer Organization</li>
-                        <li>Compiler Design</li>
-                        <li>Statistical Computing</li>
-                        <li>Data Visualization</li>
-                    </ul>
+                <div class="project">
+                    <h3>EAGLEPLAN</h3>
+                    <p>
+                        Led backend development for course planning platform
+                        intended to serve 5000+ students. Built with Django,
+                        JavaScript, and RESTful APIs. Implemented Google OAuth
+                        integration and full-stack CRUD operations.
+                    </p>
                 </div>
-                <div>
-                    <ul>
-                        <li>Linear Algebra</li>
-                        <li>Multivariable Calculus</li>
-                        <li>Differential Equations</li>
-                        <li>Discrete Mathematics</li>
-                        <li>Combinatorics</li>
-                        <li>Logic</li>
-                        <li>Real Analysis</li>
-                        <li>Complex Analysis</li>
-                        <li>Abstract Algebra</li>
-                    </ul>
+                <div class="project">
+                    <h3>XV6 OPERATING SYSTEM</h3>
+                    <p>
+                        Enhanced xv6 teaching operating system with priority
+                        scheduling and thread support. Implemented system calls
+                        and memory management features using C and x86 Assembly.
+                    </p>
                 </div>
-            </div>
-        </section>
+                <div class="project">
+                    <h3>SYNAPSE</h3>
+                    <p>
+                        Implemented a ML pipeline and webapp allowing semantic
+                        search and recommendation over a corpus of 200k+
+                        simple-english wikipedia articles
+                    </p>
+                    <a href="https://github.com/shan3king/synapse"
+                        >View Project →</a
+                    >
+                </div>
+            </section>
 
-        <section id="skills" class="section">
-            <h2>SKILLS</h2>
-            <ul>
-                <li>PROGRAMMING: Python, Java, C, OCaml, Rust, JavaScript/TypeScript</li>
-                <li>WEBDEV: Django, HTML5, CSS3, d3.js, RESTful APIs</li>
-                <li>ML: PyTorch, scikit-learn, Transformer architectures</li>
-                <li>TOOLS: Linux, Git, Bash, Docker</li>
-                <li>DATA: Tableau, SQL, Data Visualization</li>
-            </ul>
-        </section>
+            <section id="experience" class="section">
+                <h2>EXPERIENCE</h2>
+                <div>
+                    <p>Junior Fullstack Engineer @ JuumeAI</p>
+                </div>
+            </section>
 
-        <section id="learning" class="section">
-            <h2>LEARNING</h2>
-            <ul>
-                <li>Deep Learning Models</li>
-                <li>(More) Rust</li>
-                <li>Probabilistic Data Structures</li>
-                <li>Macrodata Refinement</li>
-            </ul>
-        </section>
+            <section id="education" class="section">
+                <h2>EDUCATION</h2>
+                <div
+                    style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    "
+                >
+                    <div>
+                        <p>Boston College</p>
+                        <p>Bachelors of Science - Computer Science</p>
+                        <p>Minor - Mathematics</p>
+                        <p>Graduation Year: 2024</p>
+                    </div>
+                    <img
+                        src="./bc_seal.svg"
+                        alt="Boston College Logo"
+                        style="height: 100px; width: auto; margin-left: 2rem"
+                    />
+                </div>
+            </section>
 
-        <section id="interests" class="section">
-            <h2>INTERESTS</h2>
-            <p>Hockey, Baseball, Mathematics</p>
-        </section>
+            <section id="coursework" class="section">
+                <h2>COURSEWORK</h2>
+                <div class="two-columns">
+                    <div>
+                        <ul>
+                            <li>Data Structures & Algorithms</li>
+                            <li>Software Engineering Principles</li>
+                            <li>Machine Learning</li>
+                            <li>Operating Systems</li>
+                            <li>Computer Systems</li>
+                            <li>Computer Organization</li>
+                            <li>Compiler Design</li>
+                            <li>Statistical Computing</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Linear Algebra</li>
+                            <li>Multivariable Calculus</li>
+                            <li>Differential Equations</li>
+                            <li>Discrete Mathematics</li>
+                            <li>Combinatorics</li>
+                            <li>Logic</li>
+                            <li>Real Analysis</li>
+                            <li>Complex Analysis</li>
+                            <li>Abstract Algebra</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-    </div>
+            <section id="skills" class="section">
+                <h2>SKILLS</h2>
+                <ul>
+                    <li>
+                        PROGRAMMING: Python, Java, C, OCaml, Rust,
+                        JavaScript/TypeScript
+                    </li>
+                    <li>WEBDEV: Django, HTML5, CSS3, d3.js, RESTful APIs</li>
+                    <li>
+                        ML: PyTorch, scikit-learn, Transformer architectures
+                    </li>
+                    <li>TOOLS: Linux, Git, Bash, Docker</li>
+                    <li>DATA: Tableau, SQL, Data Visualization</li>
+                </ul>
+            </section>
 
-    <footer class="footer">
-        <p><script>document.write(new Date().getFullYear())</script> - Shane King</p>
-        <p style="font-size: 0.8rem;">Design inspired by <a href="https://github.com/owickstrom/the-monospace-web">The Monospace Web</a> and <a href="https://x.com/usgraphics">the U.S. Graphics Company</a></p>
-    </footer>
+            <section id="interests" class="section">
+                <h2>INTERESTS</h2>
+                <p>Hockey, Baseball, Mathematics</p>
+            </section>
+        </div>
 
-    <script>
-        document.querySelectorAll('.collapsible').forEach(button => {
-            button.addEventListener('click', () => {
-                button.classList.toggle('collapsed');
-                button.nextElementSibling.classList.toggle('collapsed');
+        <footer class="footer">
+            <p>
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
+                - Shane King
+            </p>
+            <p style="font-size: 0.8rem">
+                Design inspired by
+                <a href="https://github.com/owickstrom/the-monospace-web"
+                    >The Monospace Web</a
+                >
+                and
+                <a href="https://x.com/usgraphics">the U.S. Graphics Company</a>
+            </p>
+        </footer>
+
+        <script>
+            document.querySelectorAll(".collapsible").forEach((button) => {
+                button.addEventListener("click", () => {
+                    button.classList.toggle("collapsed");
+                    button.nextElementSibling.classList.toggle("collapsed");
+                });
             });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>
