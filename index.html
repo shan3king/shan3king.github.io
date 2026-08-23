@@ -80,12 +80,23 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                 ]
             }
         </script>
+        <!--
+            Font: Open Gorton by dakotafelder
+            https://github.com/dakotafelder/open-gorton
+            Licensed under the MIT License (see /fonts/LICENSE)
+        -->
         <style>
             @font-face {
-                font-family: "Lilex";
-                src: url("https://cdn.jsdelivr.net/npm/lilex@2.400/variable/Lilex-VF.woff2")
-                    format("woff2");
-                font-weight: 100 900;
+                font-family: "Open Gorton";
+                src: url("fonts/OpenGorton-Regular.woff2") format("woff2");
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: "Open Gorton";
+                src: url("fonts/OpenGorton-Bold.woff2") format("woff2");
+                font-weight: bold;
                 font-style: normal;
                 font-display: swap;
             }
@@ -157,7 +168,7 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
             }
 
             body {
-                font-family: "Lilex", monospace;
+                font-family: "Open Gorton", monospace;
                 line-height: 1.6;
                 max-width: 800px;
                 margin: 0 auto;
@@ -588,6 +599,13 @@ License: MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/
                 >
                 and
                 <a href="https://x.com/usgraphics">the U.S. Graphics Company</a>
+            </p>
+            <p style="font-size: 0.8rem">
+                Typeface:
+                <a href="https://github.com/dakotafelder/open-gorton"
+                    >Open Gorton</a
+                >
+                by dakotafelder, MIT License
             </p>
         </footer>
 
